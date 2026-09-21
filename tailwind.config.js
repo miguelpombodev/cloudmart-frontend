@@ -6,8 +6,16 @@ export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
+    fontFamily: {
+      edit: ["Fraunces", "serif"],
+      jet: ["JetBrains Mono", "monospace"],
+      ibm: ["IBM Plex Sans", "sans-serif"],
+      functional: ["Inter", "sans-serif"],
+      numbers: ["Source Serif 4", "serif"],
+    },
     extend: {
       colors: {
+        "green-default": "#1F4B3F",
         green_victory: "#16A34A",
         seal_blue: "#111827",
         blue_primary: "#4F46E5",
