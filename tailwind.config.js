@@ -16,11 +16,13 @@ export default {
     extend: {
       colors: {
         "green-default": "#1F4B3F",
-        green_victory: "#16A34A",
+        "red-danger": "#DC3545",
+        "yellow-warn": "#FFC107",
+        "green-victory": "#16A34A",
         seal_blue: "#111827",
         blue_primary: "#4F46E5",
         "dark-blue-primary": "#3F34E3",
-        low_gray: "#6B7280",
+        "low-gray": "#6B7280",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
