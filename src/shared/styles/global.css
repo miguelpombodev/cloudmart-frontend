@@ -83,6 +83,10 @@
     @apply h-full text-foreground;
   }
 
+  main {
+    @apply h-screen bg-cream;
+  }
+
   button {
     color: white;
   }

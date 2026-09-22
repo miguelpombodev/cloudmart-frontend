@@ -15,6 +15,7 @@ export default {
     },
     extend: {
       colors: {
+        cream: "oklch(0.98 0 0)",
         "green-default": "#1F4B3F",
         "red-danger": "#DC3545",
         "yellow-warn": "#FFC107",

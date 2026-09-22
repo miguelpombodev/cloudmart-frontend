@@ -14,7 +14,7 @@ export function Button({
 
   return (
     <button
-      className={`${kindColorMap[kind]} text-xl rounded-md px-8 py-4 md:px-4 md:py-2 md:text-base ${className}`}
+      className={`${kindColorMap[kind]} text-xl text-white rounded-md px-8 py-4 md:px-4 md:py-2 md:text-base ${className}`}
       {...rest}
     >
       {value}

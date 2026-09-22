@@ -22,11 +22,7 @@ export function Hero() {
         </p>
 
         <span className="flex items-center flex-1">
-          <Button
-            kind="default"
-            value="See collection"
-            className="mt-1 text-xs text-white"
-          />
+          <Button kind="default" value="See collection" className="mt-1 " />
         </span>
       </div>
 
