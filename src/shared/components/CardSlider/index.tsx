@@ -1,48 +1,16 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect, useCallback } from "react";
 
-import type { Items, ItemsSliderProps } from "./props";
-
-const MOCK_CATEGORIES: Items[] = [
-  {
-    id: "1",
-    name: "Eletrônicos",
-    imageUrl: "https://picsum.photos/seed/eletronicos/400/260",
-  },
-  {
-    id: "2",
-    name: "Moda",
-    imageUrl: "https://picsum.photos/seed/moda/400/260",
-  },
-  {
-    id: "3",
-    name: "Casa & Jardim",
-    imageUrl: "https://picsum.photos/seed/casa/400/260",
-  },
-  {
-    id: "4",
-    name: "Esportes",
-    imageUrl: "https://picsum.photos/seed/esportes/400/260",
-  },
-  {
-    id: "5",
-    name: "Beleza",
-    imageUrl: "https://picsum.photos/seed/beleza/400/260",
-  },
-  {
-    id: "6",
-    name: "Livros",
-    imageUrl: "https://picsum.photos/seed/livros/400/260",
-  },
-];
+import type { ItemsSliderProps } from "./props";
 
 const CARD_WIDTH = 380;
 const GAP = 16;
 const SCROLL_AMOUNT = CARD_WIDTH + GAP;
 
 export function CardSlider({
-  categories = MOCK_CATEGORIES,
-  title = "CATEGORIES",
+  items,
+  title,
+  withDecimal = false,
 }: ItemsSliderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -73,7 +41,7 @@ export function CardSlider({
   };
 
   return (
-    <section className="w-full py-6 px-5">
+    <section className="w-full">
       <div className="flex items-center justify-between mb-4 px-1">
         <h2 className="text-base uppercase font-functional text-low-gray">
           {title}
@@ -91,11 +59,15 @@ export function CardSlider({
           pb-1
         "
       >
-        {categories.map((cat) => (
+        {items.map((item) => (
           <article
-            key={cat.id}
+            key={item.id}
             className="
-              flex flex-col gap-2 shrink-0 cursor-pointer
+              flex 
+              flex-col 
+              gap-2 
+              shrink-0 
+              cursor-pointer
               w-[380px]
               group
             "
@@ -103,18 +75,20 @@ export function CardSlider({
             <div
               className="
                 relative overflow-hidden rounded-xl
-                bg-[#1a3c34]
+                bg-green-default
                 h-[220px]
               "
             >
-              {cat.imageUrl && (
+              {item.imageUrl && (
                 <img
-                  src={cat.imageUrl}
-                  alt={cat.name}
+                  src={item.imageUrl}
+                  alt={item.name}
                   className="
                     w-full h-full object-cover
                     transition-transform duration-500 ease-in-out
                     group-hover:scale-105
+                border-green-default
+                    border-2
                   "
                   loading="lazy"
                 />
@@ -129,9 +103,15 @@ export function CardSlider({
               />
             </div>
 
-            <span className="text-sm text-gray-700 font-normal pl-0.5">
-              {cat.name}
+            <span className="text-sm text-gray-700 font-functional pl-0.5">
+              {item.name}
             </span>
+
+            {withDecimal && item.price && (
+              <span className="text-sm text-gray-700 font-numbers pl-0.5">
+                {item.price}
+              </span>
+            )}
           </article>
         ))}
       </div>
