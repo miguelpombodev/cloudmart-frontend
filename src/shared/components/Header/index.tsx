@@ -4,7 +4,7 @@ export function Header() {
   const options = ["Showcase", "About", "Contact"];
 
   return (
-    <header className="flex items-center justify-around h-16 font-edit md:border-b-2">
+    <header className="flex items-center justify-around h-16 font-edit md:border-b-2 ">
       <Menu className="md:hidden" />
       <span className="max-w-12 flex items-center justify-center cursor-pointer">
         <img src="/cloud.png" alt="logo" title="logo" />

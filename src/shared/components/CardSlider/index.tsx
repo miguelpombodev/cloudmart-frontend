@@ -41,7 +41,7 @@ export function CardSlider({
   };
 
   return (
-    <section className="w-full">
+    <section>
       <div className="flex items-center justify-between mb-4 px-1">
         <h2 className="text-base uppercase font-functional text-low-gray">
           {title}
@@ -68,13 +68,16 @@ export function CardSlider({
               gap-2 
               shrink-0 
               cursor-pointer
-              w-[380px]
+              w-72
               group
+              md:w-[380px]
             "
           >
             <div
               className="
-                relative overflow-hidden rounded-xl
+                relative 
+                overflow-hidden 
+                rounded-xl
                 bg-green-default
                 h-[220px]
               "
@@ -84,10 +87,12 @@ export function CardSlider({
                   src={item.imageUrl}
                   alt={item.name}
                   className="
-                    w-full h-full object-cover
+                    w-full 
+                    h-full 
+                    object-cover
                     transition-transform duration-500 ease-in-out
                     group-hover:scale-105
-                border-green-default
+                  border-green-default
                     border-2
                   "
                   loading="lazy"

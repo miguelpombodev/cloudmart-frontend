@@ -15,10 +15,10 @@ export function HomePage() {
   return (
     <>
       <Hero />
-      <div className="w-screen p-10">
+      <div className="p-10">
         <CardSlider title="Categories" items={categories} />
       </div>
-      <div className="w-screen p-10">
+      <div className="p-10">
         <CardSlider
           title="Selected for you"
           items={products}

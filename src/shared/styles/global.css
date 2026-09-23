@@ -76,15 +76,15 @@
   }
 
   html {
-    @apply h-full antialiased;
+    @apply antialiased;
   }
 
   body {
-    @apply h-full text-foreground;
+    @apply text-foreground;
   }
 
   main {
-    @apply h-screen bg-cream;
+    @apply bg-cream;
   }
 
   button {
