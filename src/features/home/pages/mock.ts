@@ -1,37 +1,41 @@
-import type { Items } from "@/shared/components/CardSlider/props";
+import type { Category, Product } from "../types";
 
-import type { Product } from "../types";
-
-export const MOCK_CATEGORIES: Items[] = [
+export const MOCK_CATEGORIES: Category[] = [
   {
     id: "1",
-    name: "Eletrônicos",
-    imageUrl: "https://picsum.photos/seed/eletronicos/400/260",
+    name: "Eletronics",
+    imageUrl:
+      "https://img.magnific.com/fotos-gratis/arranjo-de-colecao-estacionario-moderno_23-2149309643.jpg",
   },
   {
     id: "2",
     name: "Moda",
-    imageUrl: "https://picsum.photos/seed/moda/400/260",
+    imageUrl:
+      "https://img.magnific.com/fotos-gratis/loja-de-roupas-loja-de-roupas-em-cabide-na-boutique-loja-moderna_1150-8886.jpg",
   },
   {
     id: "3",
-    name: "Casa & Jardim",
-    imageUrl: "https://picsum.photos/seed/casa/400/260",
+    name: "Housing & Garden",
+    imageUrl:
+      "https://img.magnific.com/fotos-gratis/mulher-jovem-e-atraente-trabalhando-com-plantas-decorativas-no-centro-de-jardim-supervisor-feminino-examinando-plantas-em-jardinagem-fora-na-natureza-de-verao-lindo-jardineiro-sorrindo-cuidados-com-as-plantas_1150-45788.jpg",
   },
   {
     id: "4",
-    name: "Esportes",
-    imageUrl: "https://picsum.photos/seed/esportes/400/260",
+    name: "Sports",
+    imageUrl:
+      "https://img.magnific.com/fotos-premium/equipamentos-esportivos-variados-sobre-gramado_436336-8357.jpg",
   },
   {
     id: "5",
-    name: "Beleza",
-    imageUrl: "https://picsum.photos/seed/beleza/400/260",
+    name: "Beauty",
+    imageUrl:
+      "https://img.magnific.com/fotos-gratis/duas-mulheres-felizes-aplicam-adesivos-de-beleza-usam-escovas-cosmeticas-e-escova-de-rosto-para-cuidar-de-si-mesmas-passam-por-rotinas-diarias-de-mimos-abracam-o-olhar-alegremente-longe-da-pose-contra-o-fundo-rosa_273609-59306.jpg",
   },
   {
     id: "6",
-    name: "Livros",
-    imageUrl: "https://picsum.photos/seed/livros/400/260",
+    name: "Books",
+    imageUrl:
+      "https://img.magnific.com/fotos-gratis/composicao-do-dia-do-livro-do-mundo-criativo_23-2148883781.jpg",
   },
 ];
 
