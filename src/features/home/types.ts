@@ -6,3 +6,12 @@ export interface Product {
   price: number;
   imageUrl: string;
 }
+
+export interface Banners {
+  id: number;
+  title: string;
+  color: string;
+  description: string;
+  ctaString: string;
+  urlImg: string;
+}

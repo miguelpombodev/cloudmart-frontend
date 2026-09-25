@@ -87,3 +87,24 @@ export const MOCK_PRODUCTS: Product[] = [
       "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp",
   },
 ];
+
+export const MOCK_OFFERS_BANNER = [
+  {
+    id: 1,
+    title: "Liquidação",
+    color: "#000",
+    description: "Teste Banner 1",
+    ctaString: "Veja as ofertas!",
+    urlImg:
+      "https://http2.mlstatic.com/D_NQ_676326-MLA115640316714_092026-OO.webp",
+  },
+  {
+    id: 2,
+    title: "Liquidação",
+    color: "#000",
+    description: "Teste Banner 2",
+    ctaString: "Veja as ofertas!",
+    urlImg:
+      "https://http2.mlstatic.com/D_NQ_676326-MLA115640316714_092026-OO.webp",
+  },
+];
