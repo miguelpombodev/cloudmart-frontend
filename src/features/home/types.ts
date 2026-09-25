@@ -15,3 +15,9 @@ export interface Banners {
   ctaString: string;
   urlImg: string;
 }
+
+export interface Category {
+  id: number;
+  name: string;
+  imageUrl?: string;
+}

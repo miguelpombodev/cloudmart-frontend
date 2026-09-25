@@ -1,17 +1,13 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect, useCallback } from "react";
 
-import type { ItemsSliderProps } from "./props";
+import type { CardSliderProps } from "./props";
 
 const CARD_WIDTH = 380;
 const GAP = 16;
 const SCROLL_AMOUNT = CARD_WIDTH + GAP;
 
-export function CardSlider({
-  items,
-  title,
-  withDecimal = false,
-}: ItemsSliderProps) {
+export function CardSlider({ children }: CardSliderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -42,12 +38,6 @@ export function CardSlider({
 
   return (
     <section>
-      <div className="flex items-center justify-between mb-4 px-1">
-        <h2 className="text-base uppercase font-functional text-low-gray">
-          {title}
-        </h2>
-      </div>
-
       <div
         ref={scrollRef}
         className="
@@ -59,66 +49,7 @@ export function CardSlider({
           pb-1
         "
       >
-        {items.map((item) => (
-          <article
-            key={item.id}
-            className="
-              flex 
-              flex-col 
-              gap-2 
-              shrink-0 
-              cursor-pointer
-              w-72
-              group
-              md:w-[380px]
-            "
-          >
-            <div
-              className="
-                relative 
-                overflow-hidden 
-                rounded-xl
-                bg-green-default
-                h-[220px]
-              "
-            >
-              {item.imageUrl && (
-                <img
-                  src={item.imageUrl}
-                  alt={item.name}
-                  className="
-                    w-full 
-                    h-full 
-                    object-cover
-                    transition-transform duration-500 ease-in-out
-                    group-hover:scale-105
-                  border-green-default
-                    border-2
-                  "
-                  loading="lazy"
-                />
-              )}
-
-              <div
-                className="
-                  absolute inset-0 bg-black/0
-                  transition-all duration-300
-                  group-hover:bg-black/15
-                "
-              />
-            </div>
-
-            <span className="text-sm text-gray-700 font-functional pl-0.5">
-              {item.name}
-            </span>
-
-            {withDecimal && item.price && (
-              <span className="text-sm text-gray-700 font-numbers pl-0.5">
-                {item.price}
-              </span>
-            )}
-          </article>
-        ))}
+        {children}
       </div>
       <div className="hidden md:flex md:gap-1">
         <button
