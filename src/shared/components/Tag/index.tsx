@@ -1,3 +1,5 @@
+import { CapitalizeString } from "@/shared/utils/string.utils";
+
 import type { TagProps } from "./props";
 
 export default function Tag({ title, className = "" }: TagProps) {
@@ -16,7 +18,7 @@ export default function Tag({ title, className = "" }: TagProps) {
         ${className}
       `}
     >
-      {title}
+      {CapitalizeString(title)}
     </span>
   );
 }
