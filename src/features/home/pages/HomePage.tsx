@@ -3,6 +3,7 @@ import { useState } from "react";
 import Card from "@/shared/components/Cards/Card";
 import PriceCard from "@/shared/components/Cards/PriceCard";
 import { CardSlider } from "@/shared/components/CardSlider";
+import Newsletter from "@/shared/components/Newsletter";
 import OfferBanner from "@/shared/components/OfferBanner";
 
 import { Hero } from "../components/Hero";
@@ -19,7 +20,7 @@ export function HomePage() {
   return (
     <>
       <Hero />
-      <div className="p-10">
+      <section className="p-10">
         <CardSlider>
           {categories.map((category) => (
             <Card
@@ -29,8 +30,8 @@ export function HomePage() {
             />
           ))}
         </CardSlider>
-      </div>
-      <div className="p-10 flex flex-col gap-3 md:flex-row md:px-60 md:py-10 ">
+      </section>
+      <section className="p-10 flex flex-col gap-3 md:flex-row md:px-60 md:py-10 ">
         {offersBanners.map((banner) => (
           <OfferBanner
             key={banner.id}
@@ -41,8 +42,8 @@ export function HomePage() {
             urlImg={banner.urlImg}
           />
         ))}
-      </div>
-      <div className="p-10">
+      </section>
+      <section className="p-10">
         <CardSlider>
           {products.map((product) => (
             <PriceCard
@@ -55,7 +56,10 @@ export function HomePage() {
             />
           ))}
         </CardSlider>
-      </div>
+      </section>
+      <section className="px-5">
+        <Newsletter />
+      </section>
     </>
   );
 }
