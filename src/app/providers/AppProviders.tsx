@@ -11,7 +11,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <div className="flex flex-col h-screen">
         <Header />
-        <main>
+        <main className="pb-10">
           <BrowserRouter>{children}</BrowserRouter>
         </main>
         <Footer />

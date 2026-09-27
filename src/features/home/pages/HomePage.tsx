@@ -2,18 +2,25 @@ import { useState } from "react";
 
 import Card from "@/shared/components/Cards/Card";
 import PriceCard from "@/shared/components/Cards/PriceCard";
+import RatingCard from "@/shared/components/Cards/RatingCard";
 import { CardSlider } from "@/shared/components/CardSlider";
 import Newsletter from "@/shared/components/Newsletter";
 import OfferBanner from "@/shared/components/OfferBanner";
 
 import { Hero } from "../components/Hero";
-import type { Product, Banners, Category } from "../types";
+import type { Product, Banners, Category, Rating } from "../types";
 
-import { MOCK_CATEGORIES, MOCK_PRODUCTS, MOCK_OFFERS_BANNER } from "./mock";
+import {
+  MOCK_CATEGORIES,
+  MOCK_PRODUCTS,
+  MOCK_OFFERS_BANNER,
+  MOCK_RATINGS,
+} from "./mock";
 
 export function HomePage() {
   const [categories, setCategories] = useState<Category[]>(MOCK_CATEGORIES);
   const [products, setProducts] = useState<Product[]>(MOCK_PRODUCTS);
+  const [ratings, setRatings] = useState<Rating[]>(MOCK_RATINGS);
   const [offersBanners, setOffersBanners] =
     useState<Banners[]>(MOCK_OFFERS_BANNER);
 
@@ -42,6 +49,34 @@ export function HomePage() {
             urlImg={banner.urlImg}
           />
         ))}
+      </section>
+      <section className="p-10">
+        <CardSlider>
+          {products.map((product) => (
+            <PriceCard
+              key={product.id}
+              title={product.title}
+              category={product.category}
+              description={product.description}
+              imageUrl={product.imageUrl}
+              price={product.price}
+            />
+          ))}
+        </CardSlider>
+      </section>
+      <section className="p-5">
+        <CardSlider>
+          {ratings.map((rating) => (
+            <RatingCard
+              key={rating.id}
+              reviewerName={rating.reviewerName}
+              date={rating.date}
+              description={rating.description}
+              productUrl={rating.productUrl}
+              rating={rating.rating}
+            />
+          ))}
+        </CardSlider>
       </section>
       <section className="p-10">
         <CardSlider>

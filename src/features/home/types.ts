@@ -21,3 +21,13 @@ export interface Category {
   name: string;
   imageUrl?: string;
 }
+
+export interface Rating {
+  id: number;
+  reviewerName: string;
+  productName: string;
+  rating: number;
+  description: string;
+  date: string;
+  productUrl: string;
+}

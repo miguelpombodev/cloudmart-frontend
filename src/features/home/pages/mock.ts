@@ -1,4 +1,4 @@
-import type { Category, Product } from "../types";
+import type { Category, Product, Rating } from "../types";
 
 export const MOCK_CATEGORIES: Category[] = [
   {
@@ -110,5 +110,63 @@ export const MOCK_OFFERS_BANNER = [
     ctaString: "Veja as ofertas!",
     urlImg:
       "https://http2.mlstatic.com/D_NQ_676326-MLA115640316714_092026-OO.webp",
+  },
+];
+
+export const MOCK_RATINGS: Rating[] = [
+  {
+    id: 1,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+    date: "25/10/2026",
+    rating: 4,
+    productName: "Teste 1",
+    productUrl:
+      "https://www.mercadolivre.com.br/notebook-lenovo-thinkpad-t480-i5-ssd-m2-256gb-8gb-win10pro-cor-preto-excelente-recondicionado/p/MLB2010705397",
+    reviewerName: "Jonh Doe",
+  },
+  {
+    id: 2,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+    date: "25/10/2026",
+    rating: 4,
+    productName: "Teste 1",
+    productUrl:
+      "https://www.mercadolivre.com.br/notebook-lenovo-thinkpad-t480-i5-ssd-m2-256gb-8gb-win10pro-cor-preto-excelente-recondicionado/p/MLB2010705397",
+    reviewerName: "Jonh Doe",
+  },
+  {
+    id: 3,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+    date: "25/10/2026",
+    rating: 4,
+    productName: "Teste 1",
+    productUrl:
+      "https://www.mercadolivre.com.br/notebook-lenovo-thinkpad-t480-i5-ssd-m2-256gb-8gb-win10pro-cor-preto-excelente-recondicionado/p/MLB2010705397",
+    reviewerName: "Jonh Doe",
+  },
+  {
+    id: 4,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+    date: "25/10/2026",
+    rating: 4,
+    productName: "Teste 1",
+    productUrl:
+      "https://www.mercadolivre.com.br/notebook-lenovo-thinkpad-t480-i5-ssd-m2-256gb-8gb-win10pro-cor-preto-excelente-recondicionado/p/MLB2010705397",
+    reviewerName: "Jonh Doe",
+  },
+  {
+    id: 5,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+    date: "25/10/2026",
+    rating: 4,
+    productName: "Teste 1",
+    productUrl:
+      "https://www.mercadolivre.com.br/notebook-lenovo-thinkpad-t480-i5-ssd-m2-256gb-8gb-win10pro-cor-preto-excelente-recondicionado/p/MLB2010705397",
+    reviewerName: "Jonh Doe",
   },
 ];
