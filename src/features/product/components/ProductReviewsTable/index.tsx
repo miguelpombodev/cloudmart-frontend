@@ -1,6 +1,8 @@
 import { ThumbsUp, ThumbsDown, Star } from "lucide-react";
 import { useState } from "react";
 
+import RatingStars from "@/shared/components/RatingStars";
+
 import type { ProductReviews } from "../../types";
 
 import type { ProductReviewsTableProps, ThumbType } from "./props";
@@ -15,13 +17,7 @@ function ReviewRow({ review }: { review: ProductReviews }) {
   return (
     <div className="flex flex-col border-b border-green-default gap-5 py-3 last:border-none">
       <span className="flex items-center">
-        {Array.from({ length: review.rating }).map((_, index) => (
-          <Star
-            size={13}
-            key={index}
-            className="fill-yellow-warn text-yellow-warn"
-          />
-        ))}
+        <RatingStars rating={review.rating} />
       </span>
 
       <p className="font-ibm font-normal">{review.review}</p>

@@ -7,11 +7,11 @@ import { Button } from "@/shared/components/Button";
 import PriceCard from "@/shared/components/Cards/PriceCard";
 import { CardSlider } from "@/shared/components/CardSlider";
 import QuantityFuction from "@/shared/components/QuantityCounter";
+import RatingStars from "@/shared/components/RatingStars";
 import { ConvertToCurrency } from "@/shared/utils/price.utils";
 
 import ColorOptionSelection from "../components/ColorOptionSelection";
 import ProductFeaturesTable from "../components/ProductFeaturesTable";
-import ProductImageGallery from "../components/ProductImageGallery";
 import ProductImages from "../components/ProductImages";
 import ProductReviewsTable from "../components/ProductReviewsTable";
 
@@ -59,14 +59,7 @@ export default function ProductPage() {
             </span>
           </div>
           <span className="flex items-center gap-2">
-            <span className="flex items-center">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <Star
-                  key={index}
-                  className="fill-yellow-warn text-yellow-warn"
-                />
-              ))}
-            </span>
+            <RatingStars rating={5} />
             <p className="">5.0 (10000 reviews)</p>
           </span>
           <div className="hidden md:block">
