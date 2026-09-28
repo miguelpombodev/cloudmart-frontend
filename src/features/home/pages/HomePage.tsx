@@ -58,6 +58,7 @@ export function HomePage() {
               title={product.title}
               category={product.category}
               description={product.description}
+              sku={product.sku}
               imageUrl={product.imageUrl}
               price={product.price}
             />
@@ -86,6 +87,7 @@ export function HomePage() {
               title={product.title}
               category={product.category}
               description={product.description}
+              sku={product.sku}
               imageUrl={product.imageUrl}
               price={product.price}
             />

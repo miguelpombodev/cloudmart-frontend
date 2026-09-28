@@ -20,7 +20,7 @@ export default function (
       {
         type: "addMany",
         destination:
-          "src/features/{{dashCase featureName}}/components/{{dashCase name}}",
+          "src/features/{{dashCase featureName}}/components/{{pascalCase name}}",
         templateFiles: "templates/new-component/**/*",
         base: "templates/new-component",
         globOptions: { dot: true },
@@ -40,7 +40,7 @@ export default function (
     actions: [
       {
         type: "addMany",
-        destination: "src/shared/components/{{dashCase name}}",
+        destination: "src/shared/components/{{pascalCase name}}",
         templateFiles: "templates/new-component/**/*",
         base: "templates/new-component",
         globOptions: { dot: true },

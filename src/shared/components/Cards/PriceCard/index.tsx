@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { ConvertToCurrency } from "@/shared/utils/price.utils";
 
 import { Button } from "../../Button";
@@ -9,11 +11,12 @@ export default function PriceCard({
   title,
   price,
   category,
-  description,
+  sku,
   imageUrl,
 }: PriceCardProps) {
   return (
-    <article
+    <Link
+      to={`/${sku}`}
       className="
               flex 
               flex-col 
@@ -65,6 +68,6 @@ export default function PriceCard({
           <Button kind="default" value="+ Cart" sizeType="small" />
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

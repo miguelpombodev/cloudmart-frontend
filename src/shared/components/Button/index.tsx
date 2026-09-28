@@ -5,6 +5,7 @@ export function Button({
   value,
   className = "",
   sizeType = "medium",
+  onClick,
   ...rest
 }: ButtonProps) {
   const kindColorMap = {
@@ -21,6 +22,7 @@ export function Button({
   return (
     <button
       className={`${kindColorMap[kind]} cursor-pointer text-xl text-white rounded-md ${sizeTypeMap[sizeType]} md:text-base ${className}`}
+      onClick={onClick}
       {...rest}
     >
       {value}
