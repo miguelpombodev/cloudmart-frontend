@@ -10,11 +10,11 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex flex-col h-screen">
-        <Header />
-        <main className="pb-10">
-          <BrowserRouter>{children}</BrowserRouter>
-        </main>
-        <Footer />
+        <BrowserRouter>
+          <Header />
+          <main className="pb-10">{children}</main>
+          <Footer />
+        </BrowserRouter>
       </div>
     </QueryClientProvider>
   );
