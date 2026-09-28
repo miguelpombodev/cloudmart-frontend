@@ -12,6 +12,7 @@ import { ConvertToCurrency } from "@/shared/utils/price.utils";
 import ColorOptionSelection from "../components/ColorOptionSelection";
 import ProductFeaturesTable from "../components/ProductFeaturesTable";
 import ProductImageGallery from "../components/ProductImageGallery";
+import ProductImages from "../components/ProductImages";
 import ProductReviewsTable from "../components/ProductReviewsTable";
 
 import {
@@ -42,19 +43,7 @@ export default function ProductPage() {
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="flex items-start overflow-hidden">
-          <ProductImageGallery images={PDP_MOCK_IMAGES} />
-          <img
-            src="https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
-            alt="product"
-            className="
-          w-full 
-          h-full 
-          object-cover
-          transition-transform duration-500 ease-in-out
-          group-hover:scale-105
-          "
-            loading="lazy"
-          />
+          <ProductImages images={PDP_MOCK_IMAGES} />
         </div>
         <div className="flex flex-col items-start gap-3 md:pt-5">
           <div className="flex flex-col items-start gap-1 font-edit">
