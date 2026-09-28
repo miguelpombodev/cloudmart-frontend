@@ -16,7 +16,7 @@ export default function PriceCard({
 }: PriceCardProps) {
   return (
     <Link
-      to={`/${sku}`}
+      to={`/products/${sku}`}
       className="
               flex 
               flex-col 

@@ -1,6 +1,6 @@
-import { Star, Truck } from "lucide-react";
+import { Truck } from "lucide-react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import { MOCK_PRODUCTS } from "@/features/home/pages/mock";
 import { Button } from "@/shared/components/Button";
@@ -10,6 +10,7 @@ import QuantityFuction from "@/shared/components/QuantityCounter";
 import RatingStars from "@/shared/components/RatingStars";
 import { ConvertToCurrency } from "@/shared/utils/price.utils";
 
+import Breadcrumb from "../components/Breadcrumb";
 import ColorOptionSelection from "../components/ColorOptionSelection";
 import ProductFeaturesTable from "../components/ProductFeaturesTable";
 import ProductImages from "../components/ProductImages";
@@ -18,7 +19,6 @@ import ProductReviewsTable from "../components/ProductReviewsTable";
 import {
   PDP_MOCK_COLORS,
   PDP_MOCK_IMAGES,
-  PDP_MOCK_PATHS,
   PDP_MOCK_PRODUCT_FEATURES,
   PDP_PRODUCT_REVIEWS_MOCK,
 } from "./mocks";
@@ -34,12 +34,7 @@ export default function ProductPage() {
   return (
     <section className="flex flex-col px-4 py-5 gap-8">
       <div className="flex gap-3 font-edit font-semibold">
-        {PDP_MOCK_PATHS.map((path, idx) => (
-          <a key={idx} href={path.url}>
-            {path.name}
-            <span className="mx-3">/</span>
-          </a>
-        ))}
+        <Breadcrumb />
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="flex items-start overflow-hidden">
