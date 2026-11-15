@@ -53,15 +53,7 @@ export function HomePage() {
       <section className="p-10">
         <CardSlider>
           {products.map((product) => (
-            <PriceCard
-              key={product.id}
-              title={product.title}
-              category={product.category}
-              description={product.description}
-              sku={product.sku}
-              imageUrl={product.imageUrl}
-              price={product.price}
-            />
+            <PriceCard key={product.id} item={product} />
           ))}
         </CardSlider>
       </section>
@@ -82,15 +74,7 @@ export function HomePage() {
       <section className="p-10">
         <CardSlider>
           {products.map((product) => (
-            <PriceCard
-              key={product.id}
-              title={product.title}
-              category={product.category}
-              description={product.description}
-              sku={product.sku}
-              imageUrl={product.imageUrl}
-              price={product.price}
-            />
+            <PriceCard key={product.id} item={product} />
           ))}
         </CardSlider>
       </section>

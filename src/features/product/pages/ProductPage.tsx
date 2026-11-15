@@ -119,15 +119,7 @@ export default function ProductPage() {
         </h3>
         <CardSlider>
           {MOCK_PRODUCTS.map((product) => (
-            <PriceCard
-              key={product.id}
-              title={product.title}
-              category={product.category}
-              description={product.description}
-              sku={product.sku}
-              imageUrl={product.imageUrl}
-              price={product.price}
-            />
+            <PriceCard key={product.id} item={product} />
           ))}
         </CardSlider>
       </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   const options = [
-    { name: "Showcase", path: "/showcase" },
+    { name: "Showcase", path: "/products" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];

@@ -1,3 +1,5 @@
 import type { Product } from "@/features/home/types";
 
-export type PriceCardProps = Omit<Product, "id">;
+export interface PriceCardProps {
+  item: Omit<Product, "id">;
+}

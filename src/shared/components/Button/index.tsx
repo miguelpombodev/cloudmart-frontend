@@ -6,9 +6,11 @@ export function Button({
   className = "",
   sizeType = "medium",
   onClick,
+  isDisabled,
   ...rest
 }: ButtonProps) {
   const kindColorMap = {
+    neutral: "bg-black",
     default: "bg-green-default",
     warning: "bg-yellow-warn",
     danger: "bg-red-danger",
@@ -21,7 +23,8 @@ export function Button({
 
   return (
     <button
-      className={`${kindColorMap[kind]} cursor-pointer text-xl text-white rounded-md ${sizeTypeMap[sizeType]} md:text-base ${className}`}
+      disabled={isDisabled}
+      className={`text-xl text-white rounded-md ${sizeTypeMap[sizeType]} md:text-base ${isDisabled ? "bg-gray-400 cursor-not-allowed" : `${kindColorMap[kind]} cursor-pointer`} ${className}`}
       onClick={onClick}
       {...rest}
     >
