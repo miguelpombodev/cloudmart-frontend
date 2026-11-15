@@ -1,9 +1,18 @@
 import { Menu, Search, SearchIcon, ShoppingBasket, User } from "lucide-react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useClickOutside } from "@/shared/hooks/useClickOutside.hook";
+
 import Input from "../Input";
+import UserMenu from "../UserMenu";
 
 export function Header() {
+  const [isOpenUserMenu, setOpenUserMenu] = useState<boolean>(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(userMenuRef, () => setOpenUserMenu(false), isOpenUserMenu);
+
   const options = [
     { name: "Showcase", path: "/products" },
     { name: "About", path: "/about" },
@@ -51,11 +60,27 @@ export function Header() {
         </span>
       </span>
       <span className=" w-1/2">
-        <Input icon={SearchIcon} title="search" placeholder="Search" />
+        <Input
+          icon={SearchIcon}
+          title="search"
+          placeholder="What are you looking for today?"
+        />
       </span>
       <span className="flex items-center justify-between gap-5 [&>*]:cursor-pointer">
         <Search />
-        <User className="hidden md:block" />
+        <div ref={userMenuRef} className="relative hidden md:flex">
+          <button
+            className="text-black"
+            type="button"
+            aria-label="User menu"
+            aria-haspopup="true"
+            aria-expanded={isOpenUserMenu}
+            onClick={() => setOpenUserMenu(!isOpenUserMenu)}
+          >
+            <User />
+          </button>
+          {isOpenUserMenu && <UserMenu />}
+        </div>
         <ShoppingBasket />
       </span>
     </header>

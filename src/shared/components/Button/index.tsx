@@ -10,10 +10,11 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const kindColorMap = {
-    neutral: "bg-black",
-    default: "bg-green-default",
-    warning: "bg-yellow-warn",
-    danger: "bg-red-danger",
+    neutral: "bg-black text-white",
+    default: "bg-green-default text-white",
+    warning: "bg-yellow-warn text-white",
+    danger: "bg-red-danger text-white",
+    outline: "bg-white border-2 border-green-default text-green-default",
   };
 
   const sizeTypeMap = {
@@ -24,7 +25,7 @@ export function Button({
   return (
     <button
       disabled={isDisabled}
-      className={`text-xl text-white rounded-md ${sizeTypeMap[sizeType]} md:text-base ${isDisabled ? "bg-gray-400 cursor-not-allowed" : `${kindColorMap[kind]} cursor-pointer`} ${className}`}
+      className={`text-xl rounded-md ${sizeTypeMap[sizeType]} md:text-base ${isDisabled ? "bg-gray-400 cursor-not-allowed" : `${kindColorMap[kind]} cursor-pointer`} ${className}`}
       onClick={onClick}
       {...rest}
     >
