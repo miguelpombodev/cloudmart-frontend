@@ -50,7 +50,7 @@ export function Header() {
           ))}
         </span>
       </span>
-      <span className="h-14 w-1/2">
+      <span className=" w-1/2">
         <Input icon={SearchIcon} title="search" placeholder="Search" />
       </span>
       <span className="flex items-center justify-between gap-5 [&>*]:cursor-pointer">
