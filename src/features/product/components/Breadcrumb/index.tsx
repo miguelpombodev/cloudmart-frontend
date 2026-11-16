@@ -5,8 +5,6 @@ export default function Breadcrumb() {
 
   const segments = pathname.split("/").filter(Boolean);
 
-  console.log(segments);
-
   return (
     <nav aria-label="breadcrumb">
       <ol className="flex items-center gap-1 font-edit font-semibold">

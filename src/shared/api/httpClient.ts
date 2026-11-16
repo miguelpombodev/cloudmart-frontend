@@ -1,7 +1,8 @@
-import axios from "axios";
+import { create } from "axios";
 
-export const httpClient = axios.create({
+export const httpClient = create({
   baseURL: import.meta.env.VITE_API_URL,
+  headers: { "Content-Type": "application/json" },
 });
 
 httpClient.interceptors.response.use(

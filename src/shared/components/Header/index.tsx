@@ -1,4 +1,11 @@
-import { Menu, Search, SearchIcon, ShoppingBasket, User } from "lucide-react";
+import {
+  Heart,
+  Menu,
+  Search,
+  SearchIcon,
+  ShoppingBasket,
+  User,
+} from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -22,13 +29,13 @@ export function Header() {
   return (
     <header className="flex py-10 items-center justify-around h-16 font-edit md:border-b-2 ">
       <span className="flex items-center justify-center">
-        <span className="flex w-36">
+        <span className="flex w-36 justify-between items-center md:">
           <Menu className="md:hidden" />
           <Link
             to={"/"}
             className="max-w-16 flex items-center justify-center cursor-pointer"
           >
-            <img src="/cloud.png" alt="logo" title="logo" />
+            <img src="/cloud.png" alt="logo" title="logo" className="w-full" />
             <h1 className="text-2xl font-light tracking-tighter [font-optical-sizing:text]">
               CloudMart
             </h1>
@@ -59,7 +66,7 @@ export function Header() {
           ))}
         </span>
       </span>
-      <span className=" w-1/2">
+      <span className="hidden md:block w-1/2">
         <Input
           icon={SearchIcon}
           title="search"
@@ -67,7 +74,6 @@ export function Header() {
         />
       </span>
       <span className="flex items-center justify-between gap-5 [&>*]:cursor-pointer">
-        <Search />
         <div ref={userMenuRef} className="relative hidden md:flex">
           <button
             className="text-black"
@@ -81,6 +87,7 @@ export function Header() {
           </button>
           {isOpenUserMenu && <UserMenu />}
         </div>
+        <Heart />
         <ShoppingBasket />
       </span>
     </header>

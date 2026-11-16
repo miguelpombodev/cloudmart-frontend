@@ -47,7 +47,6 @@ function Item({
 }) {
   const { openValues } = useAccordion();
   const id = useId();
-  console.log(openValues);
   const isOpen = openValues.includes(value);
 
   const ctx = useMemo(

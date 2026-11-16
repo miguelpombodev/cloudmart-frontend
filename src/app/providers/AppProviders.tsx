@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter } from "react-router-dom";
 
 import { Footer } from "@/shared/components/Footer";
@@ -15,6 +16,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
           <main className="pb-10">{children}</main>
           <Footer />
         </BrowserRouter>
+        <ReactQueryDevtools initialIsOpen={false} />
       </div>
     </QueryClientProvider>
   );

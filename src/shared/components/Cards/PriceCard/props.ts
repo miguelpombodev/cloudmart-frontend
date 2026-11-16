@@ -1,5 +1,5 @@
-import type { Product } from "@/features/home/types";
+import type Product from "@/app/models/product";
 
 export interface PriceCardProps {
-  item: Omit<Product, "id">;
+  item: Product;
 }

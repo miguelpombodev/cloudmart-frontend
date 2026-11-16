@@ -7,21 +7,21 @@ import type { PaginationProps } from "./props";
 export default function Pagination<T>({
   totalItems,
   itemsPerPage,
-  items,
+  data,
   component: Component,
 }: PaginationProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  const currentItems = items.slice(
+  const currentItems = data.items.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
   );
 
   return (
     <div className="flex flex-1 flex-col gap-5">
-      <div className="flex flex-1 flex-wrap gap-4">
+      <div className="flex justify-center flex-wrap gap-16">
         {currentItems.map((item, index) => (
           <Component key={index} item={item} />
         ))}
@@ -52,7 +52,7 @@ export default function Pagination<T>({
         </span>
 
         <Button
-          isDisabled={currentPage === 1}
+          isDisabled={currentPage !== 1}
           onClick={() => setCurrentPage((prev) => prev + 1)}
           value="Next"
           kind="default"

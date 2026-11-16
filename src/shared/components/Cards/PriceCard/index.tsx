@@ -12,14 +12,15 @@ export default function PriceCard({ item }: PriceCardProps) {
   return (
     <article
       className="
-              flex 
-              flex-col 
+              flex flex-col 
+              flex-wrap flex-grow-0 
               shrink-0 
               w-72
               group
-              md:w-[380px]
+              md:w-[310px]
               rounded-lg
               overflow-hidden
+              md:basis-1/4
             "
     >
       <div
@@ -28,15 +29,18 @@ export default function PriceCard({ item }: PriceCardProps) {
                 overflow-hidden 
                 bg-gradient-to-b to-[#e9e4d8] from-[#9f9f95]
                 h-80
-                md:h-[420px]
+                md:h-[300px]
               "
       >
-        <Tag title={item.category} className="absolute z-10 top-3 left-3" />
-        {item.imageUrl && (
+        <Tag
+          title={item.categoryTitle}
+          className="absolute z-10 top-3 left-3"
+        />
+        {item.image && (
           <Link to={`/products/${item.sku}`}>
             <img
-              src={item.imageUrl}
-              alt={item.title}
+              src={item.image.url}
+              alt={item.image.altText}
               className="
                     w-full 
                     h-full 
@@ -53,18 +57,14 @@ export default function PriceCard({ item }: PriceCardProps) {
 
       <div className="flex flex-col px-2 py-2 gap-4 bg-[#fbf9f5]">
         <span className="text-xl text-green-default font-extrabold font-numbers pl-0.5 md:text-3xl">
-          {ConvertToCurrency(item.price)}
+          {ConvertToCurrency(item.price, "Portugal", item.currency)}
         </span>
 
         <div className="flex flex-col justify-between items-start gap-2">
-          <span className="text-lg text-gray-700 font-semibold font-functional pl-0.5 md:text-xl">
-            {item.title}
+          <span className="min-h-16 text-lg text-gray-700 font-semibold font-functional pl-0.5 md:text-xl">
+            {item.name}
           </span>
-          <p className="text-gray-500 text-sm">
-            {
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at "
-            }
-          </p>
+          <p className="min-h-16 text-gray-500 text-sm">{item.description}</p>
         </div>
 
         <div>
