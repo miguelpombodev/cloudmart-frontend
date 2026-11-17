@@ -22,15 +22,16 @@ export function HomePage() {
   const [offersBanners, setOffersBanners] =
     useState<Banners[]>(MOCK_OFFERS_BANNER);
 
-  const { data: products, isPending: isPendingProducts } = useQuery({
-    queryKey: ["products", "collection"],
-    queryFn: getProductsByCollection,
-    placeholderData: keepPreviousData,
-  });
+  const { data, isPending } = useQuery({
+    queryKey: ["home"],
+    queryFn: async () => {
+      const [products, categories] = await Promise.all([
+        getProductsByCollection(),
+        getAllCategories(),
+      ]);
 
-  const { data: categories, isPending: isPendingCategories } = useQuery({
-    queryKey: ["categories", "collection"],
-    queryFn: getAllCategories,
+      return { products, categories };
+    },
     placeholderData: keepPreviousData,
   });
 
@@ -39,9 +40,9 @@ export function HomePage() {
       <Hero />
       <section className="p-10">
         <CardSlider>
-          {isPendingCategories || !categories
+          {isPending || !data?.categories
             ? [1, 2, 3, 4, 5].map((item) => <CardSkeleton key={item} />)
-            : categories.map((category) => (
+            : data?.categories.map((category) => (
                 <Card
                   key={category.id}
                   name={category.title}
@@ -64,9 +65,9 @@ export function HomePage() {
       </section>
       <section className="p-10">
         <CardSlider>
-          {isPendingProducts
+          {isPending
             ? [1, 2, 3, 4, 5].map((item) => <PriceCardSkeleton key={item} />)
-            : products?.map((product) => (
+            : data?.products?.map((product) => (
                 <PriceCard key={product.sku} item={product} />
               ))}
         </CardSlider>
@@ -87,9 +88,9 @@ export function HomePage() {
       </section>
       <section className="p-10">
         <CardSlider>
-          {isPendingProducts || !products
+          {isPending || !data?.products
             ? [1, 2, 3, 4, 5].map((item) => <PriceCardSkeleton key={item} />)
-            : products?.map((product) => (
+            : data?.products?.map((product) => (
                 <PriceCard key={product.sku} item={product} />
               ))}
         </CardSlider>
