@@ -20,7 +20,7 @@ export default function PriceRange() {
   return (
     <>
       <div className="flex ">
-        <span className="flex w-full flex-col justify-center gap-2 font-functional text-lg">
+        <span className="flex flex-col justify-center gap-2 font-functional text-lg">
           <span className="flex items-center gap-3 justify-between">
             <input
               className="w-32 h-10 px-2 outline-none text-black border-none rounded-lg flex-1"

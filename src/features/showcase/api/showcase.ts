@@ -1,15 +1,20 @@
-import type ProductFilters from "@/app/models/filters";
+import type IProductFilters from "@/app/models/filters";
 import type Product from "@/app/models/product";
 import { httpClient } from "@/shared/api/httpClient";
 import type PaginatedData from "@/shared/types/paginatedData.interface";
 
-export async function getProductsPaginated(): Promise<PaginatedData<Product>> {
+export async function getProductsPaginated(
+  pageSize: number = 20,
+  pageNumber: number = 1,
+  sortBy: string = "HigherPrice",
+): Promise<PaginatedData<Product>> {
   const { data } = await httpClient.get<PaginatedData<Product>>(
     `${import.meta.env.VITE_API_URL}/api/catalog/products`,
     {
       params: {
-        pageSize: 20,
-        pageNumber: 1,
+        pageSize,
+        pageNumber,
+        sortBy,
       },
     },
   );
@@ -17,8 +22,11 @@ export async function getProductsPaginated(): Promise<PaginatedData<Product>> {
   return data;
 }
 
-export async function getProductsFilters(): Promise<ProductFilters> {
-  const { data } = await httpClient.get<ProductFilters>(
+export async function getProductsFilters(
+  pageSize: number = 20,
+  pageNumber: number = 1,
+): Promise<IProductFilters> {
+  const { data } = await httpClient.get<IProductFilters>(
     `${import.meta.env.VITE_API_URL}/api/catalog/products/filters`,
   );
 
