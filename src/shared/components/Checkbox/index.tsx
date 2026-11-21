@@ -12,7 +12,7 @@ export default function Checkbox({
 
   return (
     <>
-      <span className="relative inline-flex h-6 w-6 shrink-0">
+      <span className="relative flex h-6 w-6 shrink-0">
         <input
           name={title}
           {...rest}

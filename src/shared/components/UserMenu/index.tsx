@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Button } from "../Button";
 
 export default function UserMenu() {
@@ -8,8 +10,12 @@ export default function UserMenu() {
         <p>Start your session or create an account for a single experience</p>
       </span>
       <span className="flex items-center justify-center gap-5">
-        <Button kind="default" sizeType="medium" value="Sign In" />
-        <Button kind="outline" sizeType="medium" value="Sign Up" />
+        <Link to="/customer/create">
+          <Button kind="default" sizeType="medium" value="Sign In" />
+        </Link>
+        <Link to="/customer/login">
+          <Button kind="outline" sizeType="medium" value="Sign Up" />
+        </Link>
       </span>
     </div>
   );
