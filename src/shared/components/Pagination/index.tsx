@@ -10,9 +10,21 @@ export default function Pagination<T>({
   onChangePage,
   pageNumber = 1,
 }: PaginationProps<T>) {
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const getPageWindow = (
+    current: number,
+    total: number,
+    size = 5,
+  ): number[] => {
+    const windowSize = Math.min(size, total);
+    const half = Math.floor(size / 2);
 
-  const numberOfPagesList = Array.from({ length: totalPages }, (_, i) => i + 1);
+    const start = Math.max(1, Math.min(current - half, total - windowSize + 1));
+
+    return Array.from({ length: windowSize }, (_, i) => start + i);
+  };
+
+  const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+  const visiblePages = getPageWindow(pageNumber, totalPages, 5);
 
   const handlePrevious = () => {
     if (pageNumber > 1) {
@@ -28,23 +40,31 @@ export default function Pagination<T>({
 
   return (
     <div className="flex flex-1 flex-col gap-5">
-      <div className="flex justify-center flex-wrap gap-16">
+      <div className="flex justify-center flex-wrap gap-16 md:h-full">
         {data.items.map((item, index) => (
           <Component key={index} item={item} />
         ))}
       </div>
 
-      <div className="flex items-center justify-center gap-4">
-        {numberOfPagesList.map((page, index) => (
-          <span
-            key={index}
+      <nav
+        aria-label="Pagination"
+        className="flex items-center justify-center gap-4"
+      >
+        {visiblePages.map((page) => (
+          <button
+            key={page}
+            type="button"
             onClick={() => onChangePage(page)}
-            className={`py-4 px-5 rounded-md text-white cursor-pointer ${pageNumber === page ? "bg-green-default" : "bg-low-gray"}`}
+            aria-current={page === pageNumber ? "page" : undefined}
+            aria-label={`Page ${page}`}
+            className={`rounded-md px-5 py-4 text-white ${
+              page === pageNumber ? "bg-green-default" : "bg-low-gray"
+            }`}
           >
             {page}
-          </span>
+          </button>
         ))}
-      </div>
+      </nav>
 
       <div className="flex items-center justify-center gap-4">
         <Button

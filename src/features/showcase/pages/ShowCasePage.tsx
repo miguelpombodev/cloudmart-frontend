@@ -206,12 +206,14 @@ export default function ShowcasePage() {
                 />
               </span>
             )}
-            <Button
-              kind="outline"
-              value="Check filtered products"
-              sizeType="small"
-              onClick={() => setOpenedMobileFiltersSettings(false)}
-            />
+            <span className="py-4">
+              <Button
+                kind="outline"
+                value="Check filtered products"
+                sizeType="small"
+                onClick={() => setOpenedMobileFiltersSettings(false)}
+              />
+            </span>
           </div>
         </>
       )}
