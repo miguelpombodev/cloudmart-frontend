@@ -8,7 +8,7 @@ import Input from "@/shared/components/Input";
 
 export function CreateAccountPage() {
   return (
-    <div className="flex px-5 flex-col flex-1 font-functional items-stretch justify-center gap-5 bg-green-default py-16 basis-0 md:flex-row md:px-0 md:h-[75dvh]">
+    <div className="flex px-5 flex-col flex-1 font-functional items-stretch justify-center gap-5 bg-green-default py-16 basis-0 md:flex-row md:px-0 ">
       <section className="flex flex-col justify-flex items-start bg-white rounded-lg px-14 py-5 gap-4">
         <h1 className="font-edit text-2xl text-center md:text-start">
           Create your account is
