@@ -5,6 +5,7 @@ export function Button({
   value,
   className = "",
   sizeType = "medium",
+  icon: Icon,
   onClick,
   isDisabled,
   ...rest
@@ -23,13 +24,16 @@ export function Button({
   };
 
   return (
-    <button
-      disabled={isDisabled}
-      className={`text-xl rounded-md ${sizeTypeMap[sizeType]} md:text-base ${isDisabled ? "bg-gray-400 cursor-not-allowed" : `${kindColorMap[kind]} cursor-pointer`} ${className}`}
-      onClick={onClick}
-      {...rest}
-    >
-      {value}
-    </button>
+    <span className="flex items-center justify-center">
+      <button
+        disabled={isDisabled}
+        className={`flex items-center gap-2 text-xl rounded-md ${sizeTypeMap[sizeType]} md:text-base ${isDisabled ? "bg-gray-400 cursor-not-allowed" : `${kindColorMap[kind]} cursor-pointer`} ${className}`}
+        onClick={onClick}
+        {...rest}
+      >
+        {Icon && <Icon size={18} aria-hidden="true" className="shrink-0" />}
+        {value}
+      </button>
+    </span>
   );
 }
