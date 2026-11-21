@@ -5,6 +5,7 @@ import Breadcrumb from "@/features/product/components/Breadcrumb";
 import PriceCard from "@/shared/components/Cards/PriceCard";
 import Pagination from "@/shared/components/Pagination";
 import { PaginationSkeleton } from "@/shared/components/PaginationSkeleton";
+import { useDebounceSelection } from "@/shared/hooks/useDebounceSelection";
 
 import { getProductsFilters, getProductsPaginated } from "../api/showcase";
 import ProductsFilter from "../components/ProductsFilter";
@@ -17,6 +18,8 @@ export default function ShowcasePage() {
     .setPageNumber(Number(searchParams.get("pageNumber")))
     .setPageSize(Number(searchParams.get("pageSize")))
     .setSortBy(searchParams.get("sortBy"))
+    .setCategoriesList(searchParams.getAll("categories"))
+    .setBrandsList(searchParams.getAll("brands"))
     .build();
 
   const { data, isPending } = useQuery({
@@ -27,6 +30,8 @@ export default function ShowcasePage() {
           filtersValues.pageSize,
           filtersValues.pageNumber,
           filtersValues.sortBy,
+          filtersValues.categories,
+          filtersValues.brands,
         ),
         getProductsFilters(),
         signal,
@@ -59,6 +64,34 @@ export default function ShowcasePage() {
     });
   };
 
+  const setCategoriesAndBrandsFilter = (
+    categories: string[],
+    brands: string[],
+  ) => {
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+
+      next.delete("categories");
+      categories.forEach((category) => next.append("categories", category));
+
+      next.delete("brands");
+      brands.forEach((brand) => next.append("brands", brand));
+
+      next.set("pageNumber", "1");
+      return next;
+    });
+  };
+
+  const [selection, selectFilters] = useDebounceSelection(
+    {
+      categories: filtersValues.categories,
+      brands: filtersValues.brands,
+    },
+    ({ categories, brands }) =>
+      setCategoriesAndBrandsFilter(categories, brands),
+    1000,
+  );
+
   return (
     <section className="flex flex-col px-4 py-5 gap-8">
       <div className="flex gap-3 font-edit font-semibold">
@@ -69,11 +102,15 @@ export default function ShowcasePage() {
           <h3 className="text-2xl font-edit font-bold underline">Filters</h3>
           {data?.filters && (
             <span className="flex flex-col gap-5">
-              <ProductsFilter filters={data.filters} />
+              <ProductsFilter
+                filters={data.filters}
+                selected={selection}
+                onSelect={selectFilters}
+              />
             </span>
           )}
         </aside>
-        <div className="flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-8">
           <div className="flex items-center justify-end bg-green-default text-white gap-10 rounded-lg pr-5 h-12">
             <span className="flex gap-2 font-bold">
               Products per page:

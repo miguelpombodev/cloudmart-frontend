@@ -3,9 +3,22 @@ import { Accordion } from "@/shared/components/Accordion";
 import FilterCheckbox from "../FilterCheckbox";
 import PriceRange from "../PriceRange";
 
-import type { ProductsFilterProps } from "./props";
+import type { FilterSelection, ProductsFilterProps } from "./props";
 
-export default function ProductsFilter({ filters }: ProductsFilterProps) {
+export default function ProductsFilter({
+  filters,
+  selected,
+  onSelect,
+}: ProductsFilterProps) {
+  const toggle = (key: keyof FilterSelection, id: string) => {
+    const current = selected[key];
+    const next = current.includes(id)
+      ? current.filter((value) => value !== id)
+      : [...current, id];
+
+    onSelect({ ...selected, [key]: next });
+  };
+
   return (
     <>
       <Accordion
@@ -22,6 +35,8 @@ export default function ProductsFilter({ filters }: ProductsFilterProps) {
                   id={filter.id}
                   title={filter.title}
                   quantity={filter.quantity}
+                  checked={selected.brands.includes(String(filter.id))}
+                  onChange={() => toggle("brands", String(filter.id))}
                 />
               ))}
             </div>
@@ -38,13 +53,15 @@ export default function ProductsFilter({ filters }: ProductsFilterProps) {
                   id={filter.id}
                   title={filter.title}
                   quantity={filter.quantity}
+                  checked={selected.categories.includes(String(filter.id))}
+                  onChange={() => toggle("categories", String(filter.id))}
                 />
               ))}
             </div>
           </Accordion.Content>
         </Accordion.Item>
 
-        <Accordion.Item value="reviews">
+        {/* <Accordion.Item value="reviews">
           <Accordion.Trigger>Review</Accordion.Trigger>
           <Accordion.Content>
             <div className="flex flex-col gap-2">
@@ -58,7 +75,7 @@ export default function ProductsFilter({ filters }: ProductsFilterProps) {
               ))}
             </div>
           </Accordion.Content>
-        </Accordion.Item>
+        </Accordion.Item> */}
 
         <Accordion.Item value="prices">
           <Accordion.Trigger>Prices</Accordion.Trigger>
