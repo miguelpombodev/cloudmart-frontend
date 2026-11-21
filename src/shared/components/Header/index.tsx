@@ -123,10 +123,13 @@ export function Header() {
                 CloudMart
               </h1>
             </Link>
-            <span className="flex justify-center py-5 bg-green-default text-white rounded-lg cursor-pointer md:hidden">
+            <Link
+              to="/customer/login"
+              className="flex justify-center py-5 bg-green-default text-white rounded-lg cursor-pointer md:hidden"
+            >
               <User />
               <p className="px-2">Enter your account!</p>
-            </span>
+            </Link>
             <span className="flex flex-col gap-5 cursor-pointer">
               {options.map((opt) => (
                 <Link
