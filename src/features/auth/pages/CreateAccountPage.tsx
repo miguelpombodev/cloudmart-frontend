@@ -1,5 +1,6 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { Pencil, Mail, KeyRound } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/shared/components/Button";
 import Checkbox from "@/shared/components/Checkbox";
@@ -104,7 +105,9 @@ export function CreateAccountPage() {
               <span className="text-green-default text-2xl">CloudMart?</span>
             </h2>
             <p>Click below to start your session!</p>
-            <Button kind="outline" sizeType="medium" value="Start session" />
+            <Link to="/customer/login">
+              <Button kind="outline" sizeType="medium" value="Start session" />
+            </Link>
           </span>
         </div>
       </section>
