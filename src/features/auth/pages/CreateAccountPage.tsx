@@ -8,9 +8,9 @@ import Input from "@/shared/components/Input";
 
 export function CreateAccountPage() {
   return (
-    <div className="flex flex-1 items-stretch justify-center gap-5 bg-green-default py-16 basis-0">
+    <div className="flex px-5 flex-col flex-1 font-functional items-stretch justify-center gap-5 bg-green-default py-16 basis-0 md:flex-row md:px-0 md:h-[75dvh]">
       <section className="flex flex-col justify-flex items-start bg-white rounded-lg px-14 py-5 gap-4">
-        <h1 className="font-edit text-2xl">
+        <h1 className="font-edit text-2xl text-center md:text-start">
           Create your account is
           <span className="text-green-default text-2xl mx-1 font-bold">
             EASY
@@ -77,7 +77,7 @@ export function CreateAccountPage() {
         </form>
       </section>
       <section className="flex flex-col items-center justify-center bg-white rounded-lg px-14 py-5">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 text-center md:text-start">
           <span className="flex flex-col gap-4">
             <h1 className="font-edit text-2xl">
               Or sign in with a social media
